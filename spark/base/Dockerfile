@@ -11,13 +11,12 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
 	5AA90E72812FF2467904277D548F5FEE9E4FE3AF \
         FC8ED089 
 
-ENV SPARK_VERSION spark-2.2.0-bin-hadoop2.7
-ENV SPARK_URL https://www.apache.org/dist/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz
+ENV SPARK_VERSION spark-2.2.2-bin-hadoop2.7
+ENV SPARK_URL https://www.apache.org/dist/spark/spark-2.2.2/spark-2.2.2-bin-hadoop2.7.tgz
 
+# TODO: Add GPG or SHA verification
 RUN set -x \
     && curl -fSL "$SPARK_URL" -o /tmp/spark.tar.gz \
-    && curl -fSL "$SPARK_URL.asc" -o /tmp/spark.tar.gz.asc \
-    && gpg --verify /tmp/spark.tar.gz.asc \
     && tar -xvzf /tmp/spark.tar.gz -C /opt/ \
     && rm /tmp/spark.tar.gz*
 

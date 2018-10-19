@@ -4,7 +4,7 @@ LABEL Description="This is the base image for Hive Datawarehouse" \
       Author="Pavan Keerthi <pavan.keerthi@gmail.com>"
 
 
-ENV HIVE_VERSION 2.3.0
+ENV HIVE_VERSION 2.3.3
 
 ENV HIVE_HOME /opt/hive
 ENV PATH $HIVE_HOME/bin:$PATH
