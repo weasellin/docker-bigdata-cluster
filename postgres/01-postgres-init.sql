@@ -1,4 +1,4 @@
-USE postgres
+\connect postgres
 
 CREATE USER hive;
 ALTER USER hive WITH PASSWORD 'hive';

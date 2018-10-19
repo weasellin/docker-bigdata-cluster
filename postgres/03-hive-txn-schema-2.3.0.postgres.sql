@@ -16,7 +16,7 @@
 --
 -- Tables for transaction management
 -- 
-USE metastore
+\connect metastore
 
 CREATE TABLE TXNS (
   TXN_ID bigint PRIMARY KEY,
@@ -133,5 +133,8 @@ CREATE TABLE WRITE_SET (
   WS_OPERATION_TYPE char(1) NOT NULL
 );
 
+-- It's neccessary to grant the privileges of tables and sequences besides the database.
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO hive;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO hive;
 
 SELECT 'COMPLETED creating Hive metastore transactions locks schema';
